@@ -22,7 +22,6 @@ function BookAddFunction(props) {
         if (bookShop.author && bookShop.quantity && bookShop.price) {
             setSubmitButton('false')
             setBookCollections([...bookCollections, bookShop])
-            setLocalStorageValue(JSON.parse(localStorage.getItem('bookCollections')))
             props.submit(bookCollections)
         }
 
