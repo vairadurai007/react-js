@@ -1,20 +1,18 @@
 import { useEffect, useState } from 'react';
 import './BookLibrary.css'
 
-export default function BookListFunction(props) {
+export default function BookListFunction() {
 
-    const [reciveFormValues, setReciveFormValues] = useState([])
+    const getLocalStorageValue = JSON.parse(localStorage.getItem('bookCollections') || [])
 
-    useEffect(() => {
-        setReciveFormValues(props.formValues)
-    })
+    const [reciveFormValues, setReciveFormValues] = useState([...getLocalStorageValue])
 
-    const getLocalStorageValue = JSON.parse(window.localStorage.getItem('bookCollections'))
+    console.log(reciveFormValues);
 
     return (
 
         <div className='flex-container'>
-            {(getLocalStorageValue).map((data, index) => {
+            {(reciveFormValues || []).map((data, index) => {
 
                 return (
 

@@ -23,15 +23,12 @@ function BookAddFunction(props) {
         if (bookShop.author && bookShop.quantity && bookShop.price) {
             setSubmitButton('false')
             setBookCollections([...bookCollections, bookShop])
+            localStorage.setItem('bookCollections', JSON.stringify(bookCollections))
             props.submit(bookCollections)
         }
 
         setBookShop({ ...bookShop, author: '', quantity: '', price: '' })
     }
-
-    useEffect(() => {
-        localStorage.setItem('bookCollections', JSON.stringify(bookCollections))
-    }, [bookShop])
 
     return (
 
