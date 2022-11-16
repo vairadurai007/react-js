@@ -3,16 +3,12 @@ import './BookLibrary.css'
 
 export default function BookListFunction() {
 
-    const getLocalStorageValue = JSON.parse(localStorage.getItem('bookCollections') || [])
-
-    const [reciveFormValues, setReciveFormValues] = useState([...getLocalStorageValue])
-
-    console.log(reciveFormValues);
+    const getLocalStorageValue = JSON.parse(localStorage.getItem('bookCollections'))
 
     return (
 
         <div className='flex-container'>
-            {(reciveFormValues || []).map((data, index) => {
+            {(getLocalStorageValue || []).map((data, index) => {
 
                 return (
 
@@ -40,4 +36,4 @@ export default function BookListFunction() {
             })}
         </div>
     )
-}
+}   

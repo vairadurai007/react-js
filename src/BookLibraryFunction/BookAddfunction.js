@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import './BookLibrary.css'
 
 function BookAddFunction(props) {
 
@@ -23,12 +22,15 @@ function BookAddFunction(props) {
         if (bookShop.author && bookShop.quantity && bookShop.price) {
             setSubmitButton('false')
             setBookCollections([...bookCollections, bookShop])
-            localStorage.setItem('bookCollections', JSON.stringify(bookCollections))
+            setLocalStorageValue(JSON.parse(localStorage.getItem('bookCollections')))
             props.submit(bookCollections)
         }
 
         setBookShop({ ...bookShop, author: '', quantity: '', price: '' })
     }
+
+
+    localStorage.setItem('bookCollections', JSON.stringify(bookCollections))
 
     return (
 

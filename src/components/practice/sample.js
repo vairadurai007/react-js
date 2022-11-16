@@ -21,15 +21,21 @@ function Sample(){
       'sport':'cricket'
     }
   ];
-  //  setObj=()=>{
-    
-  // }
+
+  const value =JSON.parse(localStorage.getItem('sample')) || [];
+
+  localStorage.setItem('sample',JSON.stringify(sample))
+
   return(
     <div className="new-movie">
-  {sample.map=(object,index)=>{
+  {value.map=(object,index)=>{
     return(
       <div>
-        <Sample objectdata={object}/>
+        <ul>
+          <li>{object.name}</li>
+          <li>{object.age}</li>
+          <li>{object.sport}</li>
+        </ul>
       </div>  
     )
   }}

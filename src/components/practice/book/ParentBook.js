@@ -1,28 +1,30 @@
-import './BookLibrary.css'
-import { Route, Routes, Link } from "react-router-dom";
+import { useState } from "react";
+import './UserLoginForm.css'
 
-function Parent() {
+export default function UserLoginForm () {
+    const [userName, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+
+  const  submitFunction=()=>{
+        localStorage.setItem('username',JSON.stringify(userName))
+        localStorage.setItem('password',JSON.stringify(password))
+    }
 
     return (
-
-        <div>
-            <div className='main-container'>
-                <div className='mini-container'>
-                    <h1 className='main-heading'>Book Library</h1>
-                </div>
-                <div>
-                    <Link to={'/'}><button className='list-button'>Book List</button></Link>
-                    <Link to={'/form'}><button className='Add-button'>Add Book</button></Link>
-                </div>
-                <div>
-                    <Routes>
-                        <Route path="/" element={<BookListFunction />} />
-                        <Route path="/form" element={<BookAddFunction />} />
-                    </Routes>
-                </div>
-            </div>
+        <div className="container">
+            <form>
+                <label>userName
+                    <input name="name" type='text' placeholder="User Name" value={userName} onChange={
+                        (event) => { setUserName(event.target.value) }
+                    } />
+                </label><br></br><br></br>
+                <label>password
+                    <input name="name" type='password' placeholder="Password" value={password} onChange={
+                        (event) => { setPassword(event.target.value) }
+                    } />
+                </label><br></br><br></br>
+                <button onClick={submitFunction}>Submit</button>
+            </form>
         </div>
     )
 }
-
-export default Parent;
