@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: mintcream
+    background-color: #f8fafb;
 }
 
 .main-container {
@@ -17,25 +17,18 @@ body {
     height: auto;
     text-align: center;
     padding: 40px;
-    background-color: mintcream;
 }
 
 .mini-container {
     width: 50%;
     margin: auto;
-    margin-top: 20px;
-    padding: 30px;
     display: inline-block;
 }
 
 .main-heading {
     font-size: 60px;
-    color: black;
+    color: #16a776;
     padding-bottom: 30px;
-}
-
-.main-heading:hover {
-    color: rgb(68 68 68 / 88%);
 }
 
 .list-button {
@@ -44,17 +37,16 @@ body {
     border-radius: 5px;
     font-size: 20px;
     font-weight: 600;
-    color: hsl(277deg 94% 20%);
-    background-color: transparent;
-    background-image: none;
-    border-color: hsl(277deg 94% 20%);
+    color: #38d39f;
+    border: 2px solid #38d39f;
+    border-color: #38d39f;
     margin: auto;
+    background-color: transparent;
 }
 
 .list-button:hover {
     color: #fff;
-    background-color: hsl(277deg 94% 20%);
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    background-color: #38d39f;
 }
 
 .Add-button {
@@ -64,15 +56,16 @@ body {
     font-size: 20px;
     font-weight: 600;
     margin-left: 20px;
-    color: #034c2e;
     background-color: transparent;
     background-image: none;
-    border-color: #034c2e;
+    color: #38d39f;
+    border: 2px solid #38d39f;
+    border-color: #38d39f;
 }
 
 .Add-button:hover {
     color: #fff;
-    background-color: #034c2e;
+    background-color: #38d39f;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 
@@ -81,124 +74,82 @@ body {
     margin: auto;
 }
 
-.form-container {
-    background: #002cad;
-    width: 600px;
-    height: 550px;
-    margin: auto;
-    margin-top: 50px;
-    border-radius: 5px;
-    padding: 40px;
-    box-sizing: border-box;
-    box-shadow: 5px 10px 15px rgb(0 0 0 / 80%);
-}
-
 .form-heading {
-    margin-bottom: 60px;
-    color: white;
-    display: inline-block;
-    width: 100%;
-    padding-bottom: 60px;
-    margin: auto;
-}
-
-h1:hover {
-    color: black;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 30px;
 }
 
 .inputBox {
-    position: relative;
+    text-align: left;
+    line-height: 2;
 }
 
 form {
-    width: 80%;
+    width: 30%;
     margin: auto;
-}
-
-.inputBox input:focus~label {
-    top: -20px;
-    color: black;
-    background: #002cad;
-}
-
-input:focus {
-    border-bottom: 1px solid black;
-    color: white;
-    font-size: 15px;
-    font-weight: 500;
-}
-
-.inputBox input:valid~label {
-    transition: 0.5s;
-    top: -34px;
-    transition: 0.5s;
-    background: transparent;
+    height: auto;
+    border: none;
+    padding: 30px 50px 60px 50px;
+    margin-top: 50px;
+    background-color: #f8fafb;
+    box-shadow: 0 15px 30px 0 rgb(0 0 0 / 20%);
 }
 
 input {
     width: 100%;
-    border-style: none;
-    background: #002cad;
-    color: black;
-    font-size: 18px;
-    font-weight: 600;
-    border-bottom: 1px solid white;
-    outline: none;
-    margin-bottom: 20px;
-    border-spacing: none;
-    padding: 10px 0;
+    padding: 12px;
+    font-size: 17px;
+    border: none;
+    background: #efefef;
+    border-radius: 5px;
 }
 
 label {
-    color: white;
-    position: absolute;
-    pointer-events: none;
-    font-size: 23px;
-    font-weight: 700;
-    top: 0;
-    left: 0;
+    font-size: 20px;
+    font-weight: 500;
+    color: #000000;
 }
 
 .form-button {
-    padding: 15px 40px;
-    cursor: pointer;
-    background: transparent;
-    border-radius: 5px;
-    font-size: 17px;
+    background-color: #38d39f;
+    border-color: #38d39f;
+    color: #fff;
+    width: 100%;
+    margin: auto;
+    border: none;
+    padding: 12px 111px;
     font-weight: 600;
-    border: 2px solid white;
-    color: white;
+    border-radius: 8px;
+    font-size: 19px;
 }
 
 .form-button:hover {
-    background-color: black;
-    color: white;
-    border: none;
-    font-weight: 700;
-    font-size: 19px;
-    transition: 0.5s;
+    background-color: #16a776;
 }
 
 .mini-child-container {
-    width: 30%;
-    height: 400px;
+    width: 31%;
     margin: auto;
     margin-top: 50px;
+    box-shadow: 0 15px 30px 0 rgb(0 0 0 / 20%);
+}
+
+.list-container {
+    width: 100%;
+    margin: auto;
     text-align: left;
-    border: 2px solid black;
+    border: none;
     border-radius: 8px;
     padding: 30px;
+
 }
 
 .child-heading {
-    color: #601c1c;
+    color: #38d39f;
     font-size: 35px;
     margin-bottom: 10px;
     text-align: left;
-}
-
-.child-heading:hover {
-    color: #572b2b;
 }
 
 .edit-button {
@@ -208,38 +159,73 @@ label {
     font-size: 20px;
     font-weight: 600;
     margin-left: 8px;
-    background: transparent;
-    color: black;
+    color: #38d39f;
     border-radius: 5px;
-    border-color: black;
+    border-color: #38d39f;
+    border: 2px solid #38d39f;
+    background: transparent;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.delete-button {
+    padding: 3px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 8px;
+    color: #38d39f;
+    border-radius: 5px;
+    border-color: #38d39f;
+    border: 2px solid #38d39f;
+    background: transparent;
     margin-top: 20px;
     text-align: left;
 }
 
 .edit-button:hover {
     color: aliceblue;
-    background-color: black;
+    background-color: #38d39f;
+}
+
+.delete-button:hover {
+    color: aliceblue;
+    background-color: #38d39f;
 }
 
 span {
-    color: black;
+    color: #0080604f;
     display: inline-block;
     text-align: right;
 }
 
+.table-container {
+    width: 100%;
+    height: auto;
+}
 
 table {
     width: 100%;
     margin: auto;
+    height: auto;
     padding: 10px;
+}
+
+tbody {
+    width: 90%;
 }
 
 th {
     font-size: 20px;
 }
 
+.td-string {
+    text-align: left;
+}
+
 td {
-    color: #0b2f99;
+    color: #51596C;
     font-size: 18px;
     padding: 8px;
     font-weight: 600;
@@ -248,6 +234,11 @@ td {
 .flex-container {
     width: 100%;
     display: flex;
+    gap: 30px;
     flex-wrap: wrap;
     margin: auto;
+}
+
+.td-integer {
+    text-align: right;
 }

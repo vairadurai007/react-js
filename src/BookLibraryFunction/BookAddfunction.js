@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import './BookLibrary.css'
 
 function BookAddFunction(props) {
 
@@ -22,36 +23,40 @@ function BookAddFunction(props) {
         if (bookShop.author && bookShop.quantity && bookShop.price) {
             setSubmitButton('false')
             setBookCollections([...bookCollections, bookShop])
-            props.submit(bookCollections)
+            props.submit(bookShop)
         }
 
         setBookShop({ ...bookShop, author: '', quantity: '', price: '' })
     }
 
 
-    localStorage.setItem('bookCollections', JSON.stringify(bookCollections))
-
     return (
 
         <div className='container'>
+
             <div className='form-container'>
-                <h1 className='form-heading'>Book Library</h1>
                 <form>
+                    <h1 className='form-heading'>Book Details</h1>
                     <div className='inputBox'>
-                        <input type="text" value={bookShop.author} name='author' onChange={onChangeFunction} />
-                        <label>Author Name </label>
+                        <label>Author Name</label><br></br>
+                        <input type="text" value={bookShop.author} placeholder='Name' name='author' onChange={onChangeFunction} />
                     </div><br></br>
+
                     <div className='inputBox'>
-                        <input type="text" value={bookShop.quantity} name='quantity' onChange={onChangeFunction} />
-                        <label>Book Quantity</label>
+                        <label>Book Quantity</label><br></br>
+                        <input type="text" value={bookShop.quantity} placeholder='Quantity' name='quantity' onChange={onChangeFunction} />
                     </div><br></br>
+
                     <div className='inputBox'>
-                        <input type="text" value={bookShop.price} name='price' onChange={onChangeFunction} />
-                        <label>Book Price</label>
+                        <label>Book Price</label><br></br>
+                        <input type="text" value={bookShop.price} placeholder='Price' name='price' onChange={onChangeFunction} />
                     </div><br></br>
+
                     {submitButton ? <button className='form-button' onClick={submitFunction}>Submit</button> : <button className='form-button' onClick={submitFunction}>Update</button>}
                 </form>
+
             </div>
+
         </div>
     )
 }

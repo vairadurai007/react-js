@@ -1,7 +1,6 @@
 import { Component } from "react";
 import './props.css'
 
-
 class Child extends Component {
 
   render() {
