@@ -27,7 +27,7 @@ body {
 
 .main-heading {
     font-size: 60px;
-    color: #16a776;
+    color: #272937;
     padding-bottom: 30px;
 }
 
@@ -149,11 +149,11 @@ label {
     color: #38d39f;
     font-size: 35px;
     margin-bottom: 10px;
-    text-align: left;
+    text-align: center;
 }
 
 .edit-button {
-    padding: 3px 30px;
+    padding: 3px 42px;
     cursor: pointer;
     border-radius: 5px;
     font-size: 20px;
@@ -195,7 +195,7 @@ label {
 }
 
 span {
-    color: #0080604f;
+    color: #38d39f;
     display: inline-block;
     text-align: right;
 }
@@ -218,6 +218,7 @@ tbody {
 
 th {
     font-size: 20px;
+    text-align: left;
 }
 
 .td-string {
@@ -241,4 +242,8 @@ td {
 
 .td-integer {
     text-align: right;
+}
+
+.buttons {
+    text-align: center;
 }

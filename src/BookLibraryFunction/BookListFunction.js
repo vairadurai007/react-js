@@ -9,16 +9,26 @@ export default function BookListFunction(props) {
         setReciveFormValues(props.formValues)
     }, [props])
 
+    const deleteFunction = (index) => {
+        const listValues = reciveFormValues.filter((element,formIndex) => {
+            return (
+                index !== formIndex
+            )
+        })
+        setReciveFormValues(listValues)
+        console.log(index);
+    }
+
     return (
 
         <div className='flex-container'>
-            {(reciveFormValues || []).map((data, index) => {
+            {(reciveFormValues).map((data, index) => {
 
                 return (
 
                     <div key={index} className="mini-child-container">
                         <div className='list-container'>
-                            <h1 className="child-heading">Book List <span>{index + 1}</span></h1>
+                            <h1 className="child-heading">Book List<span>{index + 1}</span></h1>
                             <div className='table-container'>
                                 <table>
                                     <thead>
@@ -37,8 +47,10 @@ export default function BookListFunction(props) {
                                     </tbody>
                                 </table>
                             </div>
-                            <button className="edit-button">Edit</button>
-                            <button className="delete-button">Delete</button>
+                            <div className='buttons'>
+                                <button className="edit-button">Edit</button>
+                                <button onClick={() => deleteFunction(index)} className="delete-button">Delete</button>
+                            </div>
                         </div>
                     </div>
                 )
