@@ -18,17 +18,22 @@ function MainFormFunction() {
 
             <div className='mini-container'>
                 <h1 className='main-heading'>Book Library</h1>
+
+
+                <div>
+                    <Link to='/'><button className='list-button'>Book List</button></Link>
+                    <Link to='/form'><button className='Add-button'>Add Book</button></Link>
+
+                </div>
             </div>
 
-            <div>
-                <Link to='/'><button className='list-button'>Book List</button></Link>
-                <Link to='/form'><button className='Add-button'>Add Book</button></Link>
-
-            </div>
-
-            <div>
+            <div className='list-group'>
                 <Routes>
                     <Route exact path='/' element={<BookListFunction formValues={formValues} />} />
+                </Routes>
+            </div>
+            <div>
+                <Routes>
                     <Route exact path='/form' element={<BookAddFunction submit={recivedata} />} />
                 </Routes>
             </div>

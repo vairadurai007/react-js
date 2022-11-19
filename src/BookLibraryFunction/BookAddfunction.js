@@ -26,7 +26,7 @@ function BookAddFunction(props) {
             props.submit(bookShop)
         }
 
-        setBookShop({ ...bookShop, author: '', quantity: '', price: '' })
+        // setBookShop({ ...bookShop, author: '', quantity: '', price: '' })
     }
 
 

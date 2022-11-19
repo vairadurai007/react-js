@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './BookLibrary.css'
 
 export default function BookListFunction(props) {
@@ -10,13 +11,17 @@ export default function BookListFunction(props) {
     }, [props])
 
     const deleteFunction = (index) => {
-        const listValues = reciveFormValues.filter((element,formIndex) => {
+        const listValues = reciveFormValues.filter((element, formIndex) => {
             return (
                 index !== formIndex
             )
         })
         setReciveFormValues(listValues)
         console.log(index);
+    }
+
+    const editFunction = (object) => {
+        console.log(object);
     }
 
     return (
@@ -28,7 +33,7 @@ export default function BookListFunction(props) {
 
                     <div key={index} className="mini-child-container">
                         <div className='list-container'>
-                            <h1 className="child-heading">Book List<span>{index + 1}</span></h1>
+                            <h1 className="child-heading"><span>{index + 1}</span>Book List</h1>
                             <div className='table-container'>
                                 <table>
                                     <thead>
@@ -48,7 +53,7 @@ export default function BookListFunction(props) {
                                 </table>
                             </div>
                             <div className='buttons'>
-                                <button className="edit-button">Edit</button>
+                                <Link to='/form'><button onClick={() => editFunction(data)} className="edit-button">Edit</button></Link>
                                 <button onClick={() => deleteFunction(index)} className="delete-button">Delete</button>
                             </div>
                         </div>

@@ -15,12 +15,12 @@ body {
     width: 100%;
     margin: auto;
     height: auto;
-    text-align: center;
     padding: 40px;
 }
 
 .mini-container {
-    width: 50%;
+    width: 100%;
+    text-align: center;
     margin: auto;
     display: inline-block;
 }
@@ -130,7 +130,6 @@ label {
 
 .mini-child-container {
     width: 31%;
-    margin: auto;
     margin-top: 50px;
     box-shadow: 0 15px 30px 0 rgb(0 0 0 / 20%);
 }
@@ -139,14 +138,13 @@ label {
     width: 100%;
     margin: auto;
     text-align: left;
-    border: none;
     border-radius: 8px;
     padding: 30px;
 
 }
 
 .child-heading {
-    color: #38d39f;
+    color: black;
     font-size: 35px;
     margin-bottom: 10px;
     text-align: center;
@@ -180,8 +178,6 @@ label {
     border-color: #38d39f;
     border: 2px solid #38d39f;
     background: transparent;
-    margin-top: 20px;
-    text-align: left;
 }
 
 .edit-button:hover {
@@ -195,9 +191,11 @@ label {
 }
 
 span {
-    color: #38d39f;
+    color: black;
     display: inline-block;
     text-align: right;
+    font-size: 35px;
+    padding-right: 10px;
 }
 
 .table-container {
@@ -209,27 +207,23 @@ table {
     width: 100%;
     margin: auto;
     height: auto;
-    padding: 10px;
-}
-
-tbody {
-    width: 90%;
 }
 
 th {
+    text-align: center;
     font-size: 20px;
-    text-align: left;
-}
-
-.td-string {
-    text-align: left;
+    /* border: 1px solid #16a776; */
+    border-radius: 5px;
+    background-color: #38d39f;
+    color: white;
 }
 
 td {
-    color: #51596C;
+    color: #000000b5;
     font-size: 18px;
     padding: 8px;
     font-weight: 600;
+
 }
 
 .flex-container {
@@ -242,6 +236,10 @@ td {
 
 .td-integer {
     text-align: right;
+}
+
+.td-string {
+    text-align: left;
 }
 
 .buttons {
