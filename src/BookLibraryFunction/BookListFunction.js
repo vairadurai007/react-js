@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './BookLibrary.css'
+import { useNavigate } from 'react-router-dom';
 
 export default function BookListFunction(props) {
 
     const [reciveFormValues, setReciveFormValues] = useState([])
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         setReciveFormValues(props.formValues)
@@ -17,11 +20,11 @@ export default function BookListFunction(props) {
             )
         })
         setReciveFormValues(listValues)
-        console.log(index);
     }
 
-    const editFunction = (object) => {
-        console.log(object);
+    const editFunction = (listValue, index) => {
+        props.editFunction(listValue, index)
+        navigate('/form')
     }
 
     return (
@@ -53,7 +56,7 @@ export default function BookListFunction(props) {
                                 </table>
                             </div>
                             <div className='buttons'>
-                                <Link to='/form'><button onClick={() => editFunction(data)} className="edit-button">Edit</button></Link>
+                                <Link to='/form'><button onClick={() => editFunction(data, index)} className="edit-button">Edit</button></Link>
                                 <button onClick={() => deleteFunction(index)} className="delete-button">Delete</button>
                             </div>
                         </div>
@@ -63,4 +66,4 @@ export default function BookListFunction(props) {
 
         </div>
     )
-}   
+}

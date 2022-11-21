@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './BookLibrary.css'
 
 function BookAddFunction(props) {
@@ -11,7 +11,9 @@ function BookAddFunction(props) {
 
     const [bookCollections, setBookCollections] = useState([])
 
-    const [submitButton, setSubmitButton] = useState('true')
+    const [submitButton, setSubmitButton] = useState('')
+
+    const [reciveListValues, setReciveListValues] = useState([])
 
     const onChangeFunction = (event) => {
         setBookShop({ ...bookShop, [event.target.name]: event.target.value })
@@ -21,13 +23,18 @@ function BookAddFunction(props) {
         event.preventDefault()
 
         if (bookShop.author && bookShop.quantity && bookShop.price) {
-            setSubmitButton('false')
             setBookCollections([...bookCollections, bookShop])
-            props.submit(bookShop)
+            props.submitFunction(bookShop)
         }
 
         // setBookShop({ ...bookShop, author: '', quantity: '', price: '' })
     }
+
+    useEffect(() => {
+        // setBookShop({ ...bookShop, ...props.listValues })
+        const value =
+        setReciveListValues([...reciveListValues, props.listValues])
+    }, [props.listValues])
 
 
     return (
@@ -52,7 +59,7 @@ function BookAddFunction(props) {
                         <input type="text" value={bookShop.price} placeholder='Price' name='price' onChange={onChangeFunction} />
                     </div><br></br>
 
-                    {submitButton ? <button className='form-button' onClick={submitFunction}>Submit</button> : <button className='form-button' onClick={submitFunction}>Update</button>}
+                    <button className='form-button' onClick={submitFunction}>submit</button>
                 </form>
 
             </div>
