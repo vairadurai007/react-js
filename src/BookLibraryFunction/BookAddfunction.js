@@ -9,11 +9,7 @@ function BookAddFunction(props) {
         price: ''
     })
 
-    const [bookCollections, setBookCollections] = useState([])
-
-    const [submitButton, setSubmitButton] = useState('')
-
-    const [reciveListValues, setReciveListValues] = useState([])
+    const [submitButton, setSubmitButton] = useState(true)
 
     const onChangeFunction = (event) => {
         setBookShop({ ...bookShop, [event.target.name]: event.target.value })
@@ -23,19 +19,26 @@ function BookAddFunction(props) {
         event.preventDefault()
 
         if (bookShop.author && bookShop.quantity && bookShop.price) {
-            setBookCollections([...bookCollections, bookShop])
             props.submitFunction(bookShop)
         }
+        setBookShop({ ...bookShop, author: '', quantity: '', price: '' })
+    }
 
-        // setBookShop({ ...bookShop, author: '', quantity: '', price: '' })
+    const updateFormFunction = (event) => {
+        event.preventDefault()
+
+        if (bookShop.author && bookShop.quantity && bookShop.price) {
+            props.updateFormFunction(bookShop)
+            setSubmitButton(true)
+        }
+
+        setBookShop({ ...bookShop, author: '', quantity: '', price: '' })
     }
 
     useEffect(() => {
-        // setBookShop({ ...bookShop, ...props.listValues })
-        const value =
-        setReciveListValues([...reciveListValues, props.listValues])
-    }, [props.listValues])
-
+        setBookShop({ ...bookShop, ...props.listValues })
+        setSubmitButton(props.updateButton)
+    }, [props.listValues], [props.updateButton])
 
     return (
 
@@ -59,7 +62,7 @@ function BookAddFunction(props) {
                         <input type="text" value={bookShop.price} placeholder='Price' name='price' onChange={onChangeFunction} />
                     </div><br></br>
 
-                    <button className='form-button' onClick={submitFunction}>submit</button>
+                    {submitButton ? <button className='form-button' onClick={submitFunction}>submit</button> : <button className='form-button' onClick={updateFormFunction}>update</button>}
                 </form>
 
             </div>

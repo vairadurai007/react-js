@@ -15,15 +15,14 @@ export default function BookListFunction(props) {
 
     const deleteFunction = (index) => {
         const listValues = reciveFormValues.filter((element, formIndex) => {
-            return (
-                index !== formIndex
-            )
+            return (index !== formIndex)
         })
         setReciveFormValues(listValues)
     }
 
     const editFunction = (listValue, index) => {
         props.editFunction(listValue, index)
+        props.index(index)
         navigate('/form')
     }
 
