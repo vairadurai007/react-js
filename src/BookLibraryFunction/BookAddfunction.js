@@ -24,6 +24,7 @@ function BookAddFunction(props) {
         if (bookShop.author && bookShop.quantity && bookShop.price) {
             props.submitFunction(bookShop)
         }
+
         setBookShop({ ...bookShop, author: '', quantity: '', price: '' })
     }
 
@@ -36,7 +37,6 @@ function BookAddFunction(props) {
         }
 
         setBookShop({ ...bookShop, author: '', quantity: '', price: '' })
-        setSubmitButton(true)
         navigate('/')
     }
 
@@ -64,19 +64,19 @@ function BookAddFunction(props) {
                     <div className='inputBox'>
                         <label>Book Quantity</label><br></br>
                         <input type="text"
-                            value={bookShop.quantity}
-                            placeholder='Quantity'
-                            name='quantity'
-                            onChange={onChangeFunction} />
+                               value={bookShop.quantity}
+                               placeholder='Quantity'
+                               name='quantity'
+                               onChange={onChangeFunction} />
                     </div><br></br>
 
                     <div className='inputBox'>
                         <label>Book Price</label><br></br>
                         <input type="text"
-                            value={bookShop.price}
-                            placeholder='Price'
-                            name='price'
-                            onChange={onChangeFunction} />
+                               value={bookShop.price}
+                               placeholder='Price'
+                               name='price'
+                               onChange={onChangeFunction} />
                     </div><br></br>
 
                     {submitButton ? <button className='form-button'
