@@ -21,7 +21,7 @@ export default function BookListFunction(props) {
     }
 
     const editFunction = (listValue, index) => {
-        props.editFunction(listValue, index)
+        props.editFunction(listValue)
         props.index(index)
         navigate('/form')
     }
@@ -37,6 +37,7 @@ export default function BookListFunction(props) {
                         <div className='list-container'>
                             <h1 className="child-heading"><span>{index + 1}</span>Book List</h1>
                             <div className='table-container'>
+
                                 <table>
                                     <thead>
                                         <tr>
@@ -53,11 +54,19 @@ export default function BookListFunction(props) {
                                         </tr>
                                     </tbody>
                                 </table>
+
                             </div>
+
                             <div className='buttons'>
-                                <Link to='/form'><button onClick={() => editFunction(data, index)} className="edit-button">Edit</button></Link>
-                                <button onClick={() => deleteFunction(index)} className="delete-button">Delete</button>
+
+                                <Link to='/form'><button onClick={() => editFunction(data, index)}
+                                    className="edit-button">Edit</button></Link>
+
+                                <button onClick={() => deleteFunction(index)}
+                                    className="delete-button">Delete</button>
+
                             </div>
+
                         </div>
                     </div>
                 )
