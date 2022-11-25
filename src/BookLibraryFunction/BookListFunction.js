@@ -5,35 +5,27 @@ import { useNavigate } from 'react-router-dom';
 
 export default function BookListFunction(props) {
 
-    const [reciveFormValues, setReciveFormValues] = useState([])
-
+    const { formValues } = props
     const navigate = useNavigate();
 
-    useEffect(() => {
-        setReciveFormValues(props.formValues)
-    }, [props])
-
-    const deleteFunction = (index) => {
-        const listValues = reciveFormValues.filter((element, formIndex) => {
+    const deleteListData = (index) => {
+        const listValues = formValues.filter((element, formIndex) => {
             return (index !== formIndex)
         })
-        setReciveFormValues(listValues)
+        props.deleteListData(listValues)
     }
 
-    const editFunction = (listValue, index) => {
-        props.editFunction(listValue)
-        props.index(index)
+    const editListData = (listValue, listIndex) => {
+        props.editListData(listValue)
+        props.listIndex(listIndex)
         navigate('/form')
     }
 
     return (
-
         <div className='flex-container'>
-            {(reciveFormValues).map((data, index) => {
-
+            {(formValues).map((data, index) => {
                 return (
-
-                    <div key={index} className="mini-child-container">
+                    <div key={index} className="flex-container-items">
                         <div className='list-container'>
                             <h1 className="child-heading"><span>{index + 1}</span>Book List</h1>
                             <div className='table-container'>
@@ -59,11 +51,16 @@ export default function BookListFunction(props) {
 
                             <div className='buttons'>
 
-                                <Link to='/form'><button onClick={() => editFunction(data, index)}
-                                    className="edit-button">Edit</button></Link>
+                                <Link to='/form'>
+                                    <button
+                                        onClick={() => editListData(data, index)}
+                                        className="edit-button">Edit
+                                    </button>
+                                </Link>
 
-                                <button onClick={() => deleteFunction(index)}
-                                    className="delete-button">Delete</button>
+                                <button onClick={() => deleteListData(index)}
+                                    className="delete-button">Delete
+                                </button>
 
                             </div>
 

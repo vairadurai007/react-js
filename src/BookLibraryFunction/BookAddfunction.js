@@ -4,36 +4,35 @@ import './BookLibrary.css'
 
 function BookAddFunction(props) {
 
+    const { listValues, updateOnclickButton } = props;
     const [bookShop, setBookShop] = useState({
         author: '',
         quantity: "",
         price: ''
-    })
+    });
+    const [clickButton, onClickButton] = useState(true);
+    const navigate = useNavigate();
 
-    const [submitButton, setSubmitButton] = useState(true)
-
-    const navigate = useNavigate()
-
-    const onChangeFunction = (event) => {
+    const userInputData = (event) => {
         setBookShop({ ...bookShop, [event.target.name]: event.target.value })
     }
 
-    const submitFunction = (event) => {
+    const submitFormData = (event) => {
         event.preventDefault()
 
         if (bookShop.author && bookShop.quantity && bookShop.price) {
-            props.submitFunction(bookShop)
+            props.submitFormData(bookShop)
         }
 
         setBookShop({ ...bookShop, author: '', quantity: '', price: '' })
     }
 
-    const updateFormFunction = (event) => {
+    const updateFormData = (event) => {
         event.preventDefault()
 
         if (bookShop.author && bookShop.quantity && bookShop.price) {
-            props.updateFormFunction(bookShop)
-            props.submitButton(true)
+            props.updateFormData(bookShop)
+            props.clickButton(true)
         }
 
         setBookShop({ ...bookShop, author: '', quantity: '', price: '' })
@@ -41,15 +40,14 @@ function BookAddFunction(props) {
     }
 
     useEffect(() => {
-        setBookShop({ ...bookShop, ...props.listValues })
-        setSubmitButton(props.updateButton)
+        setBookShop({ ...bookShop, ...listValues })
+        onClickButton(updateOnclickButton)
     }, [])
 
     return (
-
         <div className='container'>
-
             <div className='form-container'>
+                
                 <form>
                     <h1 className='form-heading'>Book Details</h1>
                     <div className='inputBox'>
@@ -58,31 +56,31 @@ function BookAddFunction(props) {
                             value={bookShop.author}
                             placeholder='Name'
                             name='author'
-                            onChange={onChangeFunction} />
+                            onChange={userInputData} />
                     </div><br></br>
 
                     <div className='inputBox'>
                         <label>Book Quantity</label><br></br>
                         <input type="text"
-                               value={bookShop.quantity}
-                               placeholder='Quantity'
-                               name='quantity'
-                               onChange={onChangeFunction} />
+                            value={bookShop.quantity}
+                            placeholder='Quantity'
+                            name='quantity'
+                            onChange={userInputData} />
                     </div><br></br>
 
                     <div className='inputBox'>
                         <label>Book Price</label><br></br>
                         <input type="text"
-                               value={bookShop.price}
-                               placeholder='Price'
-                               name='price'
-                               onChange={onChangeFunction} />
+                            value={bookShop.price}
+                            placeholder='Price'
+                            name='price'
+                            onChange={userInputData} />
                     </div><br></br>
 
-                    {submitButton ? <button className='form-button'
-                        onClick={submitFunction}>submit</button>
+                    {clickButton ? <button className='form-button'
+                        onClick={submitFormData}>submit</button>
                         : <button className='form-button'
-                            onClick={updateFormFunction}>update</button>}
+                            onClick={updateFormData}>update</button>}
                 </form>
 
             </div>

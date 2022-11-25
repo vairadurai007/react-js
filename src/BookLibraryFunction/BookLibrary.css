@@ -12,26 +12,23 @@ body {
 }
 
 .main-container {
-    width: 100%;
-    margin: auto;
     height: auto;
     padding: 40px;
 }
 
-.mini-container {
-    width: 100%;
-    text-align: center;
-    margin: auto;
-    display: inline-block;
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
 }
 
 .main-heading {
     font-size: 60px;
     color: #272937;
-    padding-bottom: 30px;
 }
 
-.list-button {
+.main-button {
     padding: 20px 40px;
     cursor: pointer;
     border-radius: 5px;
@@ -39,31 +36,17 @@ body {
     font-weight: 600;
     color: #38d39f;
     border: 2px solid #38d39f;
-    border-color: #38d39f;
     margin: auto;
     background-color: transparent;
 }
 
-.list-button:hover {
-    color: #fff;
-    background-color: #38d39f;
+.main-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
 }
 
-.Add-button {
-    padding: 20px 40px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 20px;
-    font-weight: 600;
-    margin-left: 20px;
-    background-color: transparent;
-    background-image: none;
-    color: #38d39f;
-    border: 2px solid #38d39f;
-    border-color: #38d39f;
-}
-
-.Add-button:hover {
+.main-button:hover {
     color: #fff;
     background-color: #38d39f;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
@@ -128,7 +111,7 @@ label {
     background-color: #16a776;
 }
 
-.mini-child-container {
+.flex-container-items {
     width: 32%;
     margin-top: 50px;
     box-shadow: 0 15px 30px 0 rgb(0 0 0 / 20%);
@@ -228,7 +211,7 @@ td {
 .flex-container {
     width: 100%;
     display: flex;
-    gap: 35px;
+    column-gap: 35px;
     flex-wrap: wrap;
     margin: auto;
 }

@@ -1,75 +1,87 @@
 import './BookLibrary.css'
 import BookAddFunction from "./BookAddfunction";
 import BookListFunction from "./BookListFunction";
-import { Link, Routes, Route} from 'react-router-dom';
+import { Link, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 
-function MainFormFunction() {
+function BookLibrary() {
 
-    const [formValues, setFormValues] = useState([])
-
+    const [formValues, setFormValues] = useState([]);
     const [storeListValues, setStoreListValues] = useState([]);
+    const [updateOnclickButton, setUpdateOnclickButton] = useState(true);
+    const [reciveIndex, setReciveIndex] = useState(false);
 
-    const [updateButton, setUpdateButton] = useState(true);
-
-    const [reciveIndex, setReciveIndex] = useState();
-
-    const [updateTrigger,setUpdateTrigger]=useState();
-
-    const recivedata = (formValue) => {
-        setFormValues([...formValues, formValue])
+    const submitFormData = (bookShop) => {
+        setFormValues([...formValues, bookShop])
     }
 
-    const index = (index) => {
+    const listIndex = (index) => {
         setReciveIndex(index)
     }
 
-    const submitButton = (buttonValue) => {
-        setUpdateButton(buttonValue)
+    const clickButton = (buttonValue) => {
+        setUpdateOnclickButton(buttonValue)
     }
 
-    const updateFormFunction = (reciveFormValue) => {
-        formValues[reciveIndex] = reciveFormValue;
+    const updateFormData = (bookShop) => {
+        formValues[reciveIndex] = bookShop;
         setStoreListValues('')
     }
 
-    const reciveEditFunction = (listValue) => {
+    const deleteListData = (listValues) => {
+        setFormValues(listValues)
+    }
+
+    const editListData = (listValue) => {
         setStoreListValues(listValue)
-        setUpdateButton(false)
+        setUpdateOnclickButton(false)
+    }
+
+    const resetForm = () => {
+        setStoreListValues('')
+        setUpdateOnclickButton(true)
     }
 
     return (
-
         <div className='main-container'>
 
-            <div className='mini-container'>
+            <div className='header'>
                 <h1 className='main-heading'>Book Library</h1>
-                <div>
-                    <Link to='/'><button className='list-button'>Book List</button></Link>
-                    <Link to='/form'><button className='Add-button'>Add Book</button></Link>
+                <div className='main-buttons'>
+                    <Link to='/'>
+                        <button className='main-button' >Book List</button>
+                    </Link>
+                    <Link to='/form'>
+                        <button className='main-button' onClick={resetForm} >Add Book</button>
+                    </Link>
                 </div>
             </div>
 
-            <div className='list-group'>
+            <div>
                 <Routes>
-                    <Route  exact path='/'
-                            element={<BookListFunction
-                            index={index}
-                            editFunction={reciveEditFunction}
-                            formValues={formValues} />}
+                    <Route exact path='/'
+                        element={
+                            <BookListFunction
+                                listIndex={listIndex}
+                                editListData={editListData}
+                                deleteListData={deleteListData}
+                                formValues={formValues}
+                            />}
                     />
                 </Routes>
             </div>
 
             <div>
-                <Routes> 
-                    <Route  exact path='/form'
-                            element={<BookAddFunction
-                            updateButton={updateButton}
-                            updateFormFunction={updateFormFunction}
-                            submitButton={submitButton}
-                            listValues={storeListValues}
-                            submitFunction={recivedata} />}
+                <Routes>
+                    <Route exact path='/form'
+                        element={
+                            <BookAddFunction
+                                updateOnclickButton={updateOnclickButton}
+                                updateFormData={updateFormData}
+                                clickButton={clickButton}
+                                listValues={storeListValues}
+                                submitFormData={submitFormData}
+                            />}
                     />
                 </Routes>
             </div>
@@ -78,4 +90,4 @@ function MainFormFunction() {
     )
 }
 
-export default MainFormFunction;
+export default BookLibrary;
