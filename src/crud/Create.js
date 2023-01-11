@@ -33,7 +33,9 @@ class CrudForm extends Component {
           <div>{this.state.data ? <Read /> : null}</div>
           <div>{this.state.visible ? <Update /> : null}</div>
         </div>
+        <div>practice</div>
       </div>
+
     )
   }
 }
