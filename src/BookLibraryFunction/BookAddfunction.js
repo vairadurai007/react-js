@@ -84,7 +84,6 @@ function BookAddFunction(props) {
                 </form>
 
             </div>
-
         </div>
     )
 }
